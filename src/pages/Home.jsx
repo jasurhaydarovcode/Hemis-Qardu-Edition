@@ -1,3 +1,4 @@
+import DarkModeToggle from '@/components/DarkModeToggle';
 import { Globe } from '@/components/magicui/globe'
 import { Button } from '@/components/ui/button';
 import { logout } from '@/utils/auth.logout';
@@ -25,6 +26,7 @@ function Home() {
         <p>Salom, {user.name || 'Foydalanuvchi'}!</p>
 
         <div className='flex items-center gap-4'>
+          <DarkModeToggle />
           <Link to={"/profile"}>
             <Button className={"cursor-pointer"}>Profil</Button>
           </Link>
