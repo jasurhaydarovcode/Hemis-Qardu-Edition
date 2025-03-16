@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { API_BASE_URL } from '@/API/config';
 import LoadingButton from '@/components/Buttons/LoadingButton';
+import { API_URLS } from '@/API/config';
 
 function Login() {
   let login = useRef('');
@@ -28,7 +28,7 @@ function Login() {
 
     const data = { login: login.current.value, password: password.current.value };
 
-    axios.post(`${API_BASE_URL}/auth/login`, data)
+    axios.post(API_URLS.AUTH.LOGIN, data)
       .then(response => {
         console.log(response.data);
         localStorage.setItem('token', response.data.data.token || 'fake-token');
